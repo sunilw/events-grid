@@ -1,6 +1,8 @@
 <?php
 
-$args = array() ;
+$args = array(
+    category_in => 'day-of-action-september-2016'
+) ;
 $events = tribe_get_events( $args );
 
 ?>

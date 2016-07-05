@@ -50,7 +50,7 @@ function sweg_init_isotope() {
     </script>
 <?php           }
 }
-// add_action('wp_footer', 'sweg_init_isotope');
+add_action('wp_footer', 'sweg_init_isotope');
 
 
 add_shortcode(   'events-grid',  'sw_events_grid_loop' ) ;
