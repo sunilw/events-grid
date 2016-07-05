@@ -4,3 +4,27 @@
     border: 1px solid #fff ;    
 }
 
+.sw-events-grid {
+    border: 1px solid #d9d9d9 ;
+    border: 1px solid #d9d9d9 ; 
+
+    
+    .event-card {
+	margin-bottom: 12px ;
+	border: 1px solid #d9d9d9 ; 
+	border-left: 4px solid #23b5ac ;
+	padding: 2% ;
+	box-shadow: 10px 10px 25px -12px rgba(0,0,0,0.75);
+    }
+
+}
+
+@media (min-width: 320px)  {
+ .sw-events-grid {
+     
+         .event-card {
+	     width: 46% ;
+	     margin: 2% ;
+	 }
+ }   
+}
