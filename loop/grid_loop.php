@@ -16,25 +16,29 @@ $events = tribe_get_events( $args );
             <?php
 
             $event_meta = get_post_meta($event->ID) ;
-
             // var_dump($event_meta) ;
 
             // get the venue metadata
             $venue_id = $event->_EventVenueID ;
-            $venue = get_post_meta($venue_id) ;
-            // var_dump($venue) ;
+            $venue_meta = get_post_meta($venue_id) ;
+	    //var_dump($venue_meta) ;
             ?>
         </div>
 
 
         <div class="event-card">
-            <h3><?php echo $event->post_title  ?></h3>
+
+            <header>
+                <?php   if (  !empty($venue_meta['_VenueCity']) ) {   ?>
+                    <div class="city">
+                        <h4><?php  echo $venue_meta['_VenueCity'][0]  ?></h4>
+                    </div>
+                <?php }  ?>
+            </header>
+
+            <h3><?php echo $event->post_title ?></h3>
 
             <div class="event-details">
-
-                <div class="event-location">
-                    <h4>City: <?php  echo $venue['_VenueCity'][0] ;  ?></h4>
-                </div>
 
                 <?php    if ( !empty($event_meta['_EventURL'][0]) ) {  ?>
                     <div class="event-url">
