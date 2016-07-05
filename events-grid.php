@@ -43,14 +43,15 @@ function sweg_init_isotope() {
 
 ?>
     <script>                    
-
+     $ = jQuery.noConflict()
+	 $('.sw-events-grid').isotope({ 
+	     itemSelector : '.event-card',
+	     
+	 }) ;
     </script>
 <?php           }
 }
 add_action('wp_footer', 'sweg_init_isotope');
-
-
-
 
 
 add_shortcode(   'events-grid',  'sw_events_grid_loop' ) ;
