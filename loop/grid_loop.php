@@ -13,7 +13,7 @@ $events = tribe_get_events( $args );
         <div class="debug">
             <?php
             $event_meta = get_post_meta($event->ID) ;
-            var_dump($event_meta) ;
+            // var_dump($event_meta) ;
 
             // get the venue metadata
             $venue_id = $event->_EventVenueID ;
@@ -28,16 +28,20 @@ $events = tribe_get_events( $args );
             <header>
                 <?php   if (  !empty($venue_meta['_VenueCity']) ) {   ?>
                     <div class="city">
-                        <h4><?php  echo $venue_meta['_VenueCity'][0]  ?></h4>
+                        <h2><?php  echo $venue_meta['_VenueCity'][0]  ?></h2>
                     </div>
                 <?php }  ?>
             </header>
 
-            <h3><?php echo $event->post_title ?></h3>
+	    <?php 
+	    /*
+	     * For our initial application we won't be using the post title.
+	     * But we will probably want to use it if we repurpose the plugin
+	     * <h3><?php echo $event->post_title ?></h3>
+	    */
+	    ?>
 
             <div class="event-details">
-
-
 
                 <?php    if ( !empty($venue_meta['_VenueVenue'][0]) ) {  ?>
                     <div class="venue">
@@ -50,22 +54,21 @@ $events = tribe_get_events( $args );
                 <?php  } ?>
 
 		<div class="event-start">
-		    <p>Starts <?php  echo tribe_get_start_date( $post->ID, false, "g:i a" ); ?></p>		    
+		    <p>From <?php  echo tribe_get_start_date( $event->ID, false, "g:i a" ); ?></p>	    
 		</div>
 
+		<div class="event-link">
+		    <p><a href=" <?php    the_permalink($event->ID)   ?>">
+			More Information
+		    </a>
+		    </p>                   		    
+		</div>
 
-                <?php    if ( !empty($event_meta['_EventURL'][0]) ) {  ?>
-                    <div class="event-url">
-                        <p>Event Page:  <a href="<?php  echo $event_meta['_EventURL'][0]  ;  ?>"><?php  echo $event_meta['_EventURL'][0]  ;  ?></a></p>
-                    </div>
-                <?php  } ?>
+	    </div>
+	    
+	
 
-                <div class="event-excerpt">
-                    <?php    echo $event->post_excerpt;  ?>
-                </div>
-            </div>
-
-        </div> <!-- ENDS .event-card -->
+	</div> <!-- ENDS .event-card -->
 
     <?php }  ?>
 
