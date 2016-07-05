@@ -11,17 +11,14 @@ $events = tribe_get_events( $args );
     foreach ($events as $event ) { ?>
 
         <div class="debug">
-            <?php //    var_dump(get_post_meta($event->ID))   ?>
-
             <?php
-
             $event_meta = get_post_meta($event->ID) ;
-            // var_dump($event_meta) ;
+            var_dump($event_meta) ;
 
             // get the venue metadata
             $venue_id = $event->_EventVenueID ;
             $venue_meta = get_post_meta($venue_id) ;
-	    //var_dump($venue_meta) ;
+            // var_dump($venue_meta) ;
             ?>
         </div>
 
@@ -40,9 +37,26 @@ $events = tribe_get_events( $args );
 
             <div class="event-details">
 
+
+
+                <?php    if ( !empty($venue_meta['_VenueVenue'][0]) ) {  ?>
+                    <div class="venue">
+                        <div class="event-url">
+                            <h3>
+                                <?php echo $venue_meta['_VenueVenue'][0]  ?>
+                            </h3>
+                        </div>
+                    </div>
+                <?php  } ?>
+
+		<div class="event-start">
+		    <p>Starts <?php  echo tribe_get_start_date( $post->ID, false, "g:i a" ); ?></p>		    
+		</div>
+
+
                 <?php    if ( !empty($event_meta['_EventURL'][0]) ) {  ?>
                     <div class="event-url">
-                        <p>Event Website:  <a href="<?php  echo $event_meta['_EventURL'][0]  ;  ?>"><?php  echo $event_meta['_EventURL'][0]  ;  ?></a></p>
+                        <p>Event Page:  <a href="<?php  echo $event_meta['_EventURL'][0]  ;  ?>"><?php  echo $event_meta['_EventURL'][0]  ;  ?></a></p>
                     </div>
                 <?php  } ?>
 

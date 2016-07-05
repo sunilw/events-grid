@@ -45,8 +45,7 @@ function sweg_init_isotope() {
     <script>                    
      $ = jQuery.noConflict()
 	 $('.sw-events-grid').isotope({ 
-	     itemSelector : '.event-card',
-	     
+	     itemSelector : '.event-card',	     
 	 }) ;
     </script>
 <?php           }
