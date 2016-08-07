@@ -1,28 +1,53 @@
 /*  main */
 
-.sw-events-grid {
-    border: 1px solid #fff ;
-}
+@import "type" ;
 
 .sw-events-grid {
-    border: 1px solid #d9d9d9 ;
-    border: 1px solid #d9d9d9 ;
     position: relative ;
 
     .event-card {
 	position: relative ;
         margin-bottom: 12px ;
         border: 1px solid #d9d9d9 ;
-        border-left: 4px solid #23b5ac ;
+        border-left: 4px solid #79e5fd ;
+	background-color: #fff ;
         padding: 2% ;
         box-shadow: 10px 10px 25px -12px rgba(0,0,0,0.75);
+    }
+
+    .event-meta-header span {
+	font-size: 12px ;	
+    }
+
+    .event-card .event-url {
+	h3 {
+	}
+    }
+
+    .event-link a {
+	display: inline-block ;
+	margin-top: 12px ;
+	background-color: #dcf2ee ;
+	padding: 8px 12px ;
+	border-radius: 2px ;
+	font-size: 11px ;
+	letter-spacing: 1px ;
+	text-transform: uppercase ;
+	text-decoration: none ;
+	color: #0072a2 ;
+	border: 1px solid #9ab3af ;
+    }
+
+    .event-link a:hover {
+	background-color: #b8dbd5; 
+	color: #0072a2 ;
     }
 
 }
 
 @media (min-width: 320px)  {
     .sw-events-grid {
-        .event-card {
+        .event-card { 
             margin: 1% ;
             width: 48% ;
             float: left ;
